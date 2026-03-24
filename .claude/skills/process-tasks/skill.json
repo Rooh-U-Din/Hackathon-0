@@ -1,0 +1,14 @@
+{
+  "name": "process-tasks",
+  "description": "Process all pending tasks in Needs_Action folder",
+  "version": "1.0.0",
+  "command": "python skill.py",
+  "parameters": [
+    {
+      "name": "priority",
+      "description": "Filter by priority level (high, medium, low)",
+      "required": false,
+      "type": "string"
+    }
+  ]
+}

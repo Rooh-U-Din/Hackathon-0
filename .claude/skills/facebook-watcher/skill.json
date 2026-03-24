@@ -1,0 +1,38 @@
+{
+  "name": "facebook-watcher",
+  "version": "1.0.0",
+  "description": "Monitors Facebook for notifications, messages, and comments using browser automation",
+  "author": "AI Employee - Gold Tier",
+  "entry_point": "skill.py",
+  "parameters": [
+    {
+      "name": "vault",
+      "type": "string",
+      "description": "Path to Obsidian vault",
+      "default": "./AI_Employee_Vault"
+    },
+    {
+      "name": "session",
+      "type": "string",
+      "description": "Path to browser session directory",
+      "default": "./facebook_session"
+    },
+    {
+      "name": "headless",
+      "type": "string",
+      "description": "Run browser in headless mode (true/false)",
+      "default": "true"
+    },
+    {
+      "name": "max-notifications",
+      "type": "integer",
+      "description": "Maximum notifications to process",
+      "default": 10
+    }
+  ],
+  "requirements": [
+    "playwright>=1.40.0"
+  ],
+  "tags": ["social-media", "facebook", "monitoring", "watcher"],
+  "category": "social-monitoring"
+}

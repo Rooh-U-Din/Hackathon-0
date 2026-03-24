@@ -1,0 +1,31 @@
+{
+  "name": "whatsapp-watcher",
+  "description": "Monitor WhatsApp Web for important messages and create action items",
+  "version": "1.0.0",
+  "command": "python skill.py",
+  "parameters": [
+    {
+      "name": "check-interval",
+      "description": "Interval in seconds between checks (default: 120)",
+      "required": false,
+      "type": "integer"
+    },
+    {
+      "name": "keywords",
+      "description": "Comma-separated keywords to filter (default: urgent,asap,invoice,payment,help)",
+      "required": false,
+      "type": "string"
+    },
+    {
+      "name": "headless",
+      "description": "Run browser in headless mode (default: true)",
+      "required": false,
+      "type": "boolean"
+    }
+  ],
+  "requirements": [
+    "playwright>=1.40.0"
+  ],
+  "category": "watcher",
+  "tier": "silver"
+}

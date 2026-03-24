@@ -1,0 +1,17 @@
+{
+  "name": "instagram-poster",
+  "version": "1.0.0",
+  "description": "Posts images and captions to Instagram",
+  "author": "AI Employee - Gold Tier",
+  "entry_point": "skill.py",
+  "parameters": [
+    {"name": "vault", "type": "string", "description": "Path to Obsidian vault", "default": "./AI_Employee_Vault"},
+    {"name": "session", "type": "string", "description": "Path to browser session directory", "default": "./instagram_session"},
+    {"name": "caption", "type": "string", "description": "Post caption", "required": true},
+    {"name": "image", "type": "string", "description": "Path to image file"},
+    {"name": "headless", "type": "string", "description": "Run browser in headless mode (true/false)", "default": "true"}
+  ],
+  "requirements": ["playwright>=1.40.0"],
+  "tags": ["social-media", "instagram", "posting"],
+  "category": "social-posting"
+}

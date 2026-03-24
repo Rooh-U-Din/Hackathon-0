@@ -1,0 +1,64 @@
+version: '3.8'
+
+services:
+  postgres:
+    image: postgres:15
+    container_name: odoo-postgres
+    environment:
+      POSTGRES_DB: odoo
+      POSTGRES_USER: odoo
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-odoo_password}
+    volumes:
+      - odoo-db-data:/var/lib/postgresql/data
+    restart: always
+    networks:
+      - odoo-network
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U odoo"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  odoo:
+    image: odoo:17
+    container_name: odoo-app
+    depends_on:
+      postgres:
+        condition: service_healthy
+    ports:
+      - "8069:8069"
+    environment:
+      HOST: postgres
+      USER: odoo
+      PASSWORD: ${POSTGRES_PASSWORD:-odoo_password}
+      # Performance tuning
+      WORKERS: 2
+      MAX_CRON_THREADS: 1
+      DB_MAXCONN: 64
+    volumes:
+      - odoo-data:/var/lib/odoo
+      - odoo-config:/etc/odoo
+      - odoo-addons:/mnt/extra-addons
+    restart: always
+    networks:
+      - odoo-network
+    healthcheck:
+      test: ["CMD-SHELL", "curl -f http://localhost:8069/web/health || exit 1"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 60s
+
+volumes:
+  odoo-db-data:
+    driver: local
+  odoo-data:
+    driver: local
+  odoo-config:
+    driver: local
+  odoo-addons:
+    driver: local
+
+networks:
+  odoo-network:
+    driver: bridge

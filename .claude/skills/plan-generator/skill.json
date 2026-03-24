@@ -1,0 +1,23 @@
+{
+  "name": "plan-generator",
+  "description": "Create detailed Plan.md files for multi-step tasks using Claude reasoning",
+  "version": "1.0.0",
+  "command": "python skill.py",
+  "parameters": [
+    {
+      "name": "task-file",
+      "description": "Path to task file in Needs_Action (optional, processes all if not specified)",
+      "required": false,
+      "type": "string"
+    },
+    {
+      "name": "complexity-threshold",
+      "description": "Minimum complexity to create plan (default: 3 steps)",
+      "required": false,
+      "type": "integer"
+    }
+  ],
+  "requirements": [],
+  "category": "planning",
+  "tier": "silver"
+}

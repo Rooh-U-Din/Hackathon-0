@@ -1,0 +1,24 @@
+{
+  "name": "ceo-briefing",
+  "version": "1.0.0",
+  "description": "Generates weekly CEO briefings with business insights, revenue analysis, and proactive suggestions",
+  "author": "AI Employee - Gold Tier",
+  "entry_point": "skill.py",
+  "parameters": [
+    {
+      "name": "vault",
+      "type": "string",
+      "description": "Path to Obsidian vault",
+      "default": "./AI_Employee_Vault"
+    },
+    {
+      "name": "period-days",
+      "type": "integer",
+      "description": "Number of days to analyze",
+      "default": 7
+    }
+  ],
+  "requirements": [],
+  "tags": ["business", "analytics", "reporting", "ceo", "briefing"],
+  "category": "business-intelligence"
+}

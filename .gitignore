@@ -1,0 +1,60 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
+venv/
+ENV/
+.venv
+
+# Environment variables
+.env
+.env.local
+
+# Logs
+*.log
+logs/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Obsidian
+.obsidian/
+
+# Credentials
+credentials.json
+token.json
+*.pem
+*.key
+
+# Temporary files
+*.tmp
+~*
+
+# Browser sessions (CRITICAL - NEVER commit these)
+*_session/
+facebook_session/
+linkedin_session/
+twitter_session/
+instagram_session/
+whatsapp_session/
+
+# Processed IDs (environment-specific)
+.gmail_processed_ids.json
+.linkedin_processed_ids.json
+.twitter_processed_ids.json
+.facebook_processed_ids.json
+.instagram_processed_ids.json
+.whatsapp_processed.json
+
+# Personal data
+AI_Employee_Vault/Inbox/EMAIL_*.md

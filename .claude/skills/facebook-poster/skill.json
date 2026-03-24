@@ -1,0 +1,36 @@
+{
+  "name": "facebook-poster",
+  "version": "1.0.0",
+  "description": "Posts updates to Facebook using browser automation",
+  "author": "AI Employee - Gold Tier",
+  "entry_point": "skill.py",
+  "parameters": [
+    {
+      "name": "vault",
+      "type": "string",
+      "description": "Path to Obsidian vault",
+      "default": "./AI_Employee_Vault"
+    },
+    {
+      "name": "session",
+      "type": "string",
+      "description": "Path to browser session directory",
+      "default": "./facebook_session"
+    },
+    {
+      "name": "content",
+      "type": "string",
+      "description": "Post content",
+      "required": true
+    },
+    {
+      "name": "headless",
+      "type": "string",
+      "description": "Run browser in headless mode (true/false)",
+      "default": "true"
+    }
+  ],
+  "requirements": ["playwright>=1.40.0"],
+  "tags": ["social-media", "facebook", "posting"],
+  "category": "social-posting"
+}

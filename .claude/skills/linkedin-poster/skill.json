@@ -1,0 +1,31 @@
+{
+  "name": "linkedin-poster",
+  "description": "Automatically post on LinkedIn about business to generate sales",
+  "version": "1.0.0",
+  "command": "python skill.py",
+  "parameters": [
+    {
+      "name": "content",
+      "description": "Post content (if not provided, will generate from business context)",
+      "required": false,
+      "type": "string"
+    },
+    {
+      "name": "schedule",
+      "description": "Schedule post for later (ISO format timestamp)",
+      "required": false,
+      "type": "string"
+    },
+    {
+      "name": "draft-only",
+      "description": "Create draft without posting (default: true for approval)",
+      "required": false,
+      "type": "boolean"
+    }
+  ],
+  "requirements": [
+    "playwright>=1.40.0"
+  ],
+  "category": "social-media",
+  "tier": "silver"
+}

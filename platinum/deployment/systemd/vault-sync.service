@@ -1,0 +1,40 @@
+[Unit]
+Description=AI Employee Vault Synchronization
+Documentation=https://github.com/YOUR_USERNAME/Hackathon-0
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+User=ubuntu
+Group=ubuntu
+WorkingDirectory=/home/ubuntu/Hackathon-0/platinum/vault-sync
+
+# Environment
+Environment="PATH=/home/ubuntu/Hackathon-0/venv/bin:/usr/local/bin:/usr/bin:/bin"
+Environment="PYTHONUNBUFFERED=1"
+EnvironmentFile=/home/ubuntu/Hackathon-0/platinum/vault-sync/.env
+
+# Execution
+ExecStart=/home/ubuntu/Hackathon-0/venv/bin/python3 vault_sync.py --vault /home/ubuntu/AI_Employee_Vault --remote ${VAULT_REMOTE} --continuous --interval 300
+
+# Restart policy
+Restart=always
+RestartSec=10
+StartLimitInterval=200
+StartLimitBurst=5
+
+# Security
+NoNewPrivileges=true
+PrivateTmp=true
+ProtectSystem=strict
+ProtectHome=read-only
+ReadWritePaths=/home/ubuntu/AI_Employee_Vault /home/ubuntu/Hackathon-0/platinum/vault-sync
+
+# Logging
+StandardOutput=journal
+StandardError=journal
+SyslogIdentifier=vault-sync
+
+[Install]
+WantedBy=multi-user.target

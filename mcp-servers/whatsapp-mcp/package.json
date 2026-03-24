@@ -1,0 +1,16 @@
+{
+  "name": "whatsapp-mcp",
+  "version": "1.0.0",
+  "description": "MCP server for WhatsApp messaging via browser automation",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "dependencies": {
+    "playwright": "^1.40.0"
+  },
+  "keywords": ["mcp", "whatsapp", "messaging"],
+  "author": "AI Employee - Gold Tier",
+  "license": "MIT"
+}

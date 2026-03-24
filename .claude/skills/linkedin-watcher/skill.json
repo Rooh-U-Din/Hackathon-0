@@ -1,0 +1,57 @@
+{
+  "name": "linkedin-watcher",
+  "description": "Monitor LinkedIn notifications and messages, create markdown files in /Inbox/",
+  "version": "2.0.0",
+  "command": "python skill.py",
+  "parameters": [
+    {
+      "name": "vault",
+      "description": "Path to Obsidian vault (default: ./AI_Employee_Vault)",
+      "required": false,
+      "type": "string"
+    },
+    {
+      "name": "session",
+      "description": "Path to store LinkedIn session (default: ./linkedin_session)",
+      "required": false,
+      "type": "string"
+    },
+    {
+      "name": "max-notifications",
+      "description": "Maximum notifications to process (default: 10)",
+      "required": false,
+      "type": "integer"
+    },
+    {
+      "name": "max-messages",
+      "description": "Maximum messages to process (default: 5)",
+      "required": false,
+      "type": "integer"
+    },
+    {
+      "name": "headless",
+      "description": "Run browser in headless mode (default: true)",
+      "required": false,
+      "type": "string"
+    }
+  ],
+  "requirements": [
+    "playwright>=1.40.0"
+  ],
+  "category": "watcher",
+  "tier": "silver",
+  "architecture": "modular",
+  "integration": {
+    "input": "LinkedIn Web (via Playwright)",
+    "output": "/Inbox/*.md files",
+    "vault_structure": {
+      "reads": [],
+      "writes": [
+        "/Inbox/LINKEDIN_NOTIFICATION_*.md",
+        "/Inbox/LINKEDIN_MESSAGE_*.md",
+        "/Logs/*_linkedin_watcher.json",
+        "/.linkedin_processed_ids.json"
+      ]
+    }
+  }
+}

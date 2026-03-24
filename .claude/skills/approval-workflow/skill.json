@@ -1,0 +1,23 @@
+{
+  "name": "approval-workflow",
+  "description": "Human-in-the-loop approval workflow for sensitive actions",
+  "version": "1.0.0",
+  "command": "python skill.py",
+  "parameters": [
+    {
+      "name": "action",
+      "description": "Action to perform: check, approve, reject, execute",
+      "required": false,
+      "type": "string"
+    },
+    {
+      "name": "file",
+      "description": "Specific approval file to process",
+      "required": false,
+      "type": "string"
+    }
+  ],
+  "requirements": [],
+  "category": "workflow",
+  "tier": "silver"
+}

@@ -1,0 +1,46 @@
+{
+  "name": "gmail-watcher",
+  "description": "Monitor Gmail inbox and create markdown files in /Inbox/ for new emails",
+  "version": "2.0.0",
+  "command": "python skill.py",
+  "parameters": [
+    {
+      "name": "vault",
+      "description": "Path to Obsidian vault (default: ./AI_Employee_Vault)",
+      "required": false,
+      "type": "string"
+    },
+    {
+      "name": "credentials",
+      "description": "Path to Gmail credentials.json (default: ./credentials.json)",
+      "required": false,
+      "type": "string"
+    },
+    {
+      "name": "max-emails",
+      "description": "Maximum number of emails to process (default: 10)",
+      "required": false,
+      "type": "integer"
+    }
+  ],
+  "requirements": [
+    "google-auth>=2.0.0",
+    "google-auth-oauthlib>=1.0.0",
+    "google-api-python-client>=2.0.0"
+  ],
+  "category": "watcher",
+  "tier": "silver",
+  "architecture": "modular",
+  "integration": {
+    "input": "Gmail API",
+    "output": "/Inbox/*.md files",
+    "vault_structure": {
+      "reads": [],
+      "writes": [
+        "/Inbox/EMAIL_*.md",
+        "/Logs/*_gmail_watcher.json",
+        "/.gmail_processed_ids.json"
+      ]
+    }
+  }
+}
